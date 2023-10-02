@@ -6,8 +6,8 @@ using var loggerFactory = LoggerFactory.Create(builder =>
 {
 #pragma warning disable CA1416
     builder
-        .AddConsole()
-        .AddEventLog();
+        .AddJsonConsole();
+        //.AddEventLog();
 #pragma warning restore CA1416
 });
 
@@ -19,6 +19,14 @@ ILogger<Program> CreateLogger()
 
 ILogger<Program> logger = CreateLogger();
 
-logger.LogInformation("Hello world!");
+var name = "Tuan";
 
-logger.Log(LogLevel.Information, 0, "Hello world!");
+logger.LogInformation($"Hello from {name}!");
+
+logger.LogInformation("Hello from {name}!", name);
+
+var tuan1 = "Tuan";
+var tuan2 = "Tuan";
+
+Console.WriteLine(tuan1 == tuan2);
+

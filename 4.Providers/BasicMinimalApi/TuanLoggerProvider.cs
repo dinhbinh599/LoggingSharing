@@ -1,6 +1,6 @@
 ﻿namespace BasicMinimalApi;
 
-public class NickLoggerProvider : ILoggerProvider
+public class TuanLoggerProvider : ILoggerProvider
 {
     public void Dispose() { }
 

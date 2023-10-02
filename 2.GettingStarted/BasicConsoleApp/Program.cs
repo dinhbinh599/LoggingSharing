@@ -15,7 +15,8 @@ var name = "Tuan";
 var age = 24;
 
 //logger.LogInformation("{Name} just turned: {Age}", name, age);
-logger.LogInformation(LogEvents.UserBirthday, "{Name} just turned: {Age}", name, age);
+
+logger.LogInformation(5001, "{Name} just turned: {Age}", name, age);
 
 
 

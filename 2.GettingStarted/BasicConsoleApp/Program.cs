@@ -11,8 +11,8 @@ using var loggerFactory = LoggerFactory.Create(builder =>
 
 ILogger logger = loggerFactory.CreateLogger<Program>();
 
-var name = "Nick";
-var age = 30;
+var name = "Tuan";
+var age = 24;
 
 //logger.LogInformation("{Name} just turned: {Age}", name, age);
 logger.LogInformation(LogEvents.UserBirthday, "{Name} just turned: {Age}", name, age);

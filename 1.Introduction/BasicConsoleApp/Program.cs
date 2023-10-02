@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-#region secret 🤭
+#region Configuration
 
 using var loggerFactory = LoggerFactory.Create(builder =>
 {
@@ -20,3 +20,5 @@ ILogger<Program> CreateLogger()
 ILogger<Program> logger = CreateLogger();
 
 logger.LogInformation("Hello world!");
+
+logger.Log(LogLevel.Information, 0, "Hello world!");

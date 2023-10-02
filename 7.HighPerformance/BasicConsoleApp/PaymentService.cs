@@ -6,12 +6,12 @@ public class PaymentService
 {
     private readonly ILogger<PaymentService> _logger;
 
-    // private static readonly Action<ILogger, string, decimal, int, Exception?> _logPayment =
-    //     LoggerMessage.Define<string, decimal, int>(
-    //         LogLevel.Information,
-    //         new EventId(5001, nameof(CreatePayment)),
-    //         "Customer {Email} purchased product {ProductId} at {Amount}"
-    //     );
+    private static readonly Action<ILogger, string, decimal, int, Exception?> _logPayment =
+        LoggerMessage.Define<string, decimal, int>(
+            LogLevel.Information,
+            new EventId(5001, nameof(CreatePayment)),
+            "Customer {Email} purchased product {ProductId} at {Amount}"
+        );
 
     public PaymentService(ILogger<PaymentService> logger)
     {
@@ -22,7 +22,7 @@ public class PaymentService
     {
         // Do some work
         _logger.LogPaymentCreation(email, amount, productId);
-        //_logPayment(_logger, email, amount, productId, null);
+        _logPayment(_logger, email, amount, productId, null);
     }
 }
 

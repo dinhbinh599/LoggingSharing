@@ -22,5 +22,3 @@ logger.LogInformation(5001, "{Name} just turned: {Age}", name, age);
 
 
 
-
-

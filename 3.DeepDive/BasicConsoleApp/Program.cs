@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 using var loggerFactory = LoggerFactory.Create(builder =>
 {
     builder
-        .SetMinimumLevel(LogLevel.Debug)
+        //.SetMinimumLevel(LogLevel.Debug)
         .AddJsonConsole(options =>
         {
             options.TimestampFormat = "HH:mm:ss";
@@ -15,6 +15,7 @@ using var loggerFactory = LoggerFactory.Create(builder =>
             {
                 Indented = true
             };
+            options.IncludeScopes = true;
         });
 });
 
@@ -23,11 +24,27 @@ var logger = loggerFactory.CreateLogger<Program>();
 var name = "Tuan";
 var age = 24;
 
-try
+// try
+// {
+//     throw new Exception("Something went wrong");
+// }
+// catch (Exception ex)
+// {
+//     logger.LogError(ex, "Failure during birthday of {Name} who is {Age}", name, age);
+// }
+
+var paymentId = 1;
+var amount = 20000;
+
+using (logger.BeginScope("{paymentId}", paymentId))
 {
-    throw new Exception("Something went wrong");
-}
-catch (Exception ex)
-{
-    logger.LogError(ex, "Failure during birthday of {Name} who is {Age}", name, age);
+    try
+    {
+        logger.LogInformation("New payment for {amount}VND", amount);
+        //processing
+    }
+    finally
+    {
+        logger.LogInformation("Payment processing completed");
+    }
 }

@@ -13,7 +13,8 @@ else
     builder.Logging.ClearProviders();
     builder.Logging.AddApplicationInsights(
         configureTelemetryConfiguration: teleConfig =>
-            teleConfig.ConnectionString = "InstrumentationKey=22c34b1a-2d91-49a7-b9fb-0a15f0aef24b;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/",
+            teleConfig.ConnectionString = "InstrumentationKey=22c34b1a-2d91-49a7-b9fb-0a15f0aef24b;IngestionEndpoint=https://eastus-8.in." +
+                                          "applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/",
         configureApplicationInsightsLoggerOptions: _ => { });
 }
 

@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.ComponentModel;
+using System.Text.Json;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
@@ -16,6 +17,14 @@ using var loggerFactory = LoggerFactory.Create(builder =>
                 Indented = true
             };
         });
+    // builder.AddFilter(((provider, category, logLevel) =>
+    // {
+    //     return provider!.Contains("Console")
+    //            && category!.Contains("Microsoft.AspNetCore")
+    //            && logLevel >= LogLevel.Debug;
+    // }));
+    builder.AddFilter("Default", LogLevel.Debug)
+        .AddFilter<ConsoleLoggerProvider>("Microsoft.AspNetCore", LogLevel.Information);
 });
 
 var logger = loggerFactory.CreateLogger<Program>();

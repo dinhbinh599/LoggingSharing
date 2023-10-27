@@ -5,16 +5,16 @@ using Serilog.Events;
 
 namespace BasicConsoleApp;
 
-public class NickSink : ILogEventSink
+public class TuanSink : ILogEventSink
 {
     private readonly IFormatProvider? _formatProvider;
 
-    public NickSink(IFormatProvider? formatProvider)
+    public TuanSink(IFormatProvider? formatProvider)
     {
         _formatProvider = formatProvider;
     }
     
-    public NickSink() : this(null)
+    public TuanSink() : this(null)
     {
     }
 
@@ -26,12 +26,12 @@ public class NickSink : ILogEventSink
 }
 
 
-public static class NickSinkExtensions
+public static class TuanSinkExtensions
 {
-    public static LoggerConfiguration NickSink(
+    public static LoggerConfiguration TuanSink(
         this LoggerSinkConfiguration sinkConfiguration,
         IFormatProvider? formatProvider = null)
     {
-        return sinkConfiguration.Sink(new NickSink());
+        return sinkConfiguration.Sink(new TuanSink());
     }
 }

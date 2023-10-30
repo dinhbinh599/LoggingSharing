@@ -18,7 +18,7 @@ using var host = Host.CreateDefaultBuilder(args)
 
 var example = host.Services.GetService<PaymentService>()!;
 
-example.CreatePayment("nick@dometrain.com", 15.99m, 1);
+example.CreatePayment("tuan@saigon.com", 15.99m, 1);
 
 
 

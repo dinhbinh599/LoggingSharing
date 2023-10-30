@@ -6,11 +6,11 @@ public class TuanLoggerProvider : ILoggerProvider
 
     public ILogger CreateLogger(string categoryName)
     {
-        return new NickLogger();
+        return new TuanLogger();
     }
 }
 
-public class NickLogger : ILogger
+public class TuanLogger : ILogger
 {
     public IDisposable? BeginScope<TState>(TState state) where TState : notnull
     {
